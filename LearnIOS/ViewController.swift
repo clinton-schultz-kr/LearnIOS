@@ -8,12 +8,16 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        view.backgroundColor = .black
+        
+        NetworkManager.shared.getNews { (news) in
+            guard let news = news else { return }
+            print(news[0].title)
+            print(news[0].author)
+        }
     }
-
-
 }
 
